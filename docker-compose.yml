@@ -1,0 +1,40 @@
+# Configuration for mssql server
+
+version: '3.4'
+
+services:
+  mailsystem:
+    image: ${DOCKER_REGISTRY-}mailsystem
+    build:
+      context: .
+      dockerfile: MailSystem/Dockerfile
+    container_name: main_app
+    environment:
+      DB_USERNAME: ${DB_LOGIN}
+      DB_PASS: mssql_pass
+      DB_HOST: ${DB_HOST}
+      DATABASE_NAME: ${DATABASE_NAME}
+      TRUSTED_CONNECTION: ${IS_TRUSTED_CONNECTION}
+    secrets:
+      - mssql_pass
+    depends_on:
+      - "sqlserver"
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    #--- If need connect for view db data
+    ports:
+      - "${DB_PORT_EXTERNAL}:${DB_PORT_INTERNAL}"
+    #---
+    volumes:
+      - ./../MailSystem_localdb/data:${INTERNAL_DB_PATH}/data
+      - ./../MailSystem_localdb/log:${INTERNAL_DB_PATH}/log
+      - ./../MailSystem_localdb/secrets:${INTERNAL_DB_PATH}/secrets
+    environment:
+      SA_PASSWORD: mssql_pass
+      ACCEPT_EULA: "Y"
+    secrets:
+      - mssql_pass
+secrets:
+  mssql_pass:
+    external: true
