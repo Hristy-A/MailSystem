@@ -5,7 +5,7 @@ namespace MailSystem.Infrastructure.Data
 {
     public class MailSystemContext : DbContext
     {
-        public virtual DbSet<Account> Accounts { get; set; } = null!;
+        public DbSet<Account> Accounts { get; set; } = null!;
 
         public MailSystemContext() { }
         public MailSystemContext(DbContextOptions<MailSystemContext> options) : base(options) { }

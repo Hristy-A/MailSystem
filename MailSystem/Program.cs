@@ -1,3 +1,4 @@
+using MailSystem.AppSetup.ConfigureServices;
 using MailSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,8 +12,7 @@ namespace MailSystem
 
             // Add services to the container.
 
-            builder.Services.AddDbContext<MailSystemContext>(opetions =>
-                opetions.UseSqlServer(ConnectionStringProvider.GetConnectionStringForEnvironmentVariablis()));
+            ConfigureServiceDbContext.Configure(builder);
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -28,7 +28,7 @@ namespace MailSystem
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
