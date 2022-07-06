@@ -5,7 +5,7 @@ using MimeKit;
 
 namespace MailSystem.Infrastructure.Mailing
 {
-    public class MailProvider : IMileProvider
+    public class MailProvider : IMailProvider
     {
         public void Send(Email email, string server, string username, string password)
         {

@@ -12,7 +12,7 @@ namespace MailSystem.AppSetup.ConfigureServices
     {
         internal static void Configure(WebApplicationBuilder builder)
         {
-            builder.Services.AddSingleton<IMileProvider, MailProvider>();
+            builder.Services.AddSingleton<IMailProvider, MailProvider>();
         }
     }
 }
