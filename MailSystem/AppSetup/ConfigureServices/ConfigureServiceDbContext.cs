@@ -4,23 +4,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MailSystem.AppSetup.ConfigureServices
 {
-    public static class ConfigureServiceDbContext
+    internal static class ConfigureServiceDbContext
     {
-        public static void Configure(WebApplicationBuilder builder)
+        internal static void Configure(WebApplicationBuilder builder)
         {
             var services = builder.Services;
             var configuration = builder.Configuration;
 
+            string connectionString = new SqlConnectionStringBuilder
+            {
+                DataSource = $"{configuration["DB_HOST"]},{configuration["DB_PORT"]}",
+                InitialCatalog = configuration["DATABASE_NAME"],
+                UserID = configuration["DB_USERNAME"],
+                Password = configuration["DB_PASS"]
+            }.ToString();
+
             services.AddDbContext<MailSystemContext>(options =>
-                options.UseSqlServer(new SqlConnection(
-                    new SqlConnectionStringBuilder
-                    {
-                        DataSource = $"{configuration["DB_HOST"]},{configuration["DB_PORT"]}",
-                        InitialCatalog = configuration["DATABASE_NAME"],
-                        UserID = configuration["DB_USERNAME"],
-                        Password = configuration["DB_PASS"]
-                    }.ToString())
-                ));
+                options.UseSqlServer(connectionString));
         }
     }
 }

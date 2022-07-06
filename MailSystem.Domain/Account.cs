@@ -1,5 +1,8 @@
-﻿namespace MailSystem.Domain.Core
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MailSystem.Domain.Core
 {
+    [NotMapped]
     public class Account
     {
         public int Id { get; set; }

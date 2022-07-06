@@ -1,6 +1,5 @@
 using MailSystem.AppSetup.ConfigureServices;
 using MailSystem.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace MailSystem
 {
@@ -11,6 +10,9 @@ namespace MailSystem
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddSqlServer<MailSystemContext>(
+                "Data Source=host.docker.internal,1433;User ID=sa;Password=v!wIJ6bAjfQISVKmH;");
 
             ConfigureServiceDbContext.Configure(builder);
 

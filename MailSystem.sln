@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MailSystem.Infrastructure",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSystem.Infrastructure.Data", "MailSystem.Infrastructure\MailSystem.Infrastructure.Data.csproj", "{A766AA8C-E02F-43D7-AD43-6F727625ADF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSystem.Domain.Interfaces", "MailSystem.Domain.Interfaces\MailSystem.Domain.Interfaces.csproj", "{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSystem.Infrastructure.Mailing", "MailSystem.Infrastructure.Mailing\MailSystem.Infrastructure.Mailing\MailSystem.Infrastructure.Mailing.csproj", "{8BDAD48A-8FC2-4E43-BB3D-46949BA96282}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{A766AA8C-E02F-43D7-AD43-6F727625ADF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A766AA8C-E02F-43D7-AD43-6F727625ADF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A766AA8C-E02F-43D7-AD43-6F727625ADF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDAD48A-8FC2-4E43-BB3D-46949BA96282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDAD48A-8FC2-4E43-BB3D-46949BA96282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDAD48A-8FC2-4E43-BB3D-46949BA96282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDAD48A-8FC2-4E43-BB3D-46949BA96282}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +56,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D17265AE-03CA-4851-833F-4EEC364E2112} = {1725CAA8-E8F8-4237-92D5-2238CC5884A4}
 		{A766AA8C-E02F-43D7-AD43-6F727625ADF3} = {BCD7DD7A-8A95-49EE-BED7-8866D6F77B4D}
+		{0E8B4F7D-BF5C-47DD-8BD5-3C8E367DECE3} = {1725CAA8-E8F8-4237-92D5-2238CC5884A4}
+		{8BDAD48A-8FC2-4E43-BB3D-46949BA96282} = {BCD7DD7A-8A95-49EE-BED7-8866D6F77B4D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {942031C5-A451-400B-89D2-99D5C33C502A}

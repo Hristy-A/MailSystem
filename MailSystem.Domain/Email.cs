@@ -2,11 +2,11 @@
 {
     public class Email
     {
-        public Guid Id { get; set; }
-        public string To { get; set; } = null!;
-        public string From { get; set; } = null!;
-        public string Cc { get; set; } = null!;
-        public string Title { get; set; } = null!;
+        public ulong Id { get; set; }
+        public string To { get; set; } = default!;
+        public string From { get; set; } = default!;
+        public string Cc { get; set; } = default!;
+        public string Title { get; set; } = default!;
         public string? Body { get; set; }
         public bool IsHtml { get; set; }
     }

@@ -14,16 +14,26 @@ namespace MailSystem.Controllers
 
         public MailSystemController(ILogger<MailSystemController> logger, MailSystemContext db)
         {
-            _logger = logger;
-            _db = db;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _db = db ?? throw new ArgumentNullException(nameof(db));
+
             _db.Database.Migrate();
         }
 
-        [HttpGet(Name = "GetAccounts")]
-        public IEnumerable<Account> Get()
+        [HttpGet]
+        public IEnumerable<Email> AccountGet()
         {
+            return _db.Emails.ToArray();
+        }
+
+        [HttpPost]
+        public ActionResult<Email> SendPost(Email email)
+        {
+            _ = email ?? throw new ArgumentNullException(nameof(email));
+
+            _db.Emails.Add(email);
             _db.SaveChanges();
-            return Enumerable.Empty<Account>();
+            return Ok(email);
         }
     }
 }

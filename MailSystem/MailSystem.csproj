@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MailSystem.Domain.Interfaces\MailSystem.Domain.Interfaces.csproj" />
     <ProjectReference Include="..\MailSystem.Domain\MailSystem.Domain.Core.csproj" />
+    <ProjectReference Include="..\MailSystem.Infrastructure.Mailing\MailSystem.Infrastructure.Mailing\MailSystem.Infrastructure.Mailing.csproj" />
     <ProjectReference Include="..\MailSystem.Infrastructure\MailSystem.Infrastructure.Data.csproj" />
   </ItemGroup>
 
