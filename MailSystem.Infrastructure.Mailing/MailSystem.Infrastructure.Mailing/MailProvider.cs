@@ -7,7 +7,7 @@ namespace MailSystem.Infrastructure.Mailing
 {
     public class MailProvider : IMailProvider
     {
-        public void Send(Email email, string server, string username, string password)
+        public void Send(Email email, string server, int port, string username, string password)
         {
             MimeMessage message = new();
 
@@ -23,13 +23,13 @@ namespace MailSystem.Infrastructure.Mailing
 
             using SmtpClient client = new();
 
-            client.Connect("smtps://smtp.gmail.com", 465, false);
+            client.Connect(server, port, false);
             client.Authenticate(username, password);
             client.Send(message);
             client.Disconnect(true);
         }
 
-        public IEnumerable<Email> GetAll(string server, string username, string password)
+        public IEnumerable<Email> GetAll(string server, int port, string username, string password)
         {
             throw new NotImplementedException();
         }
