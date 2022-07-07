@@ -5,7 +5,7 @@ using MimeKit;
 
 namespace MailSystem.Infrastructure.Mailing
 {
-    public class MailProvider : IMailProvider
+    public class SMTPMailProvider : IMailProvider
     {
         public void Send(Email email, string server, int port, string username, string password)
         {
@@ -16,10 +16,9 @@ namespace MailSystem.Infrastructure.Mailing
             message.Cc.Add(new MailboxAddress(null, email.Cc));
             message.Subject = email.Title;
 
-            if (email.IsHtml)
-                throw new NotImplementedException();
-            else
-                message.Body = new TextPart("plain") { Text = email.Body };
+            message.Body = email.IsHtml 
+                ? new TextPart("html") { Text = email.Body } 
+                : new TextPart("plain") { Text = email.Body };
 
             using SmtpClient client = new();
 

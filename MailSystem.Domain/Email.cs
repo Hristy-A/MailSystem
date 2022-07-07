@@ -2,9 +2,9 @@
 {
     public class Email
     {
-        public ulong Id { get; set; }
-        public string To { get; set; } = default!;
+        public long Id { get; set; }
         public string From { get; set; } = default!;
+        public string To { get; set; } = default!;
         public string Cc { get; set; } = default!;
         public string Title { get; set; } = default!;
         public string? Body { get; set; }

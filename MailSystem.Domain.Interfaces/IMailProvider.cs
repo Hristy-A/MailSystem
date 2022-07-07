@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using MailSystem.Domain.Core;
+﻿using MailSystem.Domain.Core;
 
 namespace MailSystem.Domain.Interfaces
 {

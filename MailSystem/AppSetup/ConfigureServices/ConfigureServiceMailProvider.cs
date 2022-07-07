@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MailSystem.Domain.Interfaces;
+﻿using MailSystem.Domain.Interfaces;
 using MailSystem.Infrastructure.Mailing;
 
 namespace MailSystem.AppSetup.ConfigureServices
@@ -12,7 +7,7 @@ namespace MailSystem.AppSetup.ConfigureServices
     {
         internal static void Configure(WebApplicationBuilder builder)
         {
-            builder.Services.AddSingleton<IMailProvider, MailProvider>();
+            builder.Services.AddSingleton<IMailProvider, SMTPMailProvider>();
         }
     }
 }

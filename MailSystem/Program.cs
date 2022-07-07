@@ -1,5 +1,6 @@
 using MailSystem.AppSetup.ConfigureServices;
 using MailSystem.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace MailSystem
 {
@@ -9,21 +10,10 @@ namespace MailSystem
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
-            builder.Services.AddSqlServer<MailSystemContext>(
-                "Data Source=host.docker.internal,1433;User ID=sa;Password=v!wIJ6bAjfQISVKmH;");
-
-            ConfigureServiceDbContext.Configure(builder);
-
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            ConfigureServices.Configure(builder);
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -34,10 +24,11 @@ namespace MailSystem
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
         }
     }
+
+    
 }
